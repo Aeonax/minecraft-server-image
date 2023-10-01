@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mc:
+    container_name: minecraft-test
+    image: aeonaxliar/minecraft-server:0.1
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      MOD_URL: "https://mediafilez.forgecdn.net/files/4773/792/BMC4_FORGE_1.20.1_Server_Pack_v15_HF.zip"
+      MINECRAFT_VERSION: "1.20.1"
+      # https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.2.0/forge-1.20.1-47.2.0-installer.jar
+      FORGE_VERSION: "47.1.47"
+      JAVA_OPTIONS: "-Xmx8G -Xms4G -XX:+UseZGC -XX:ConcGCThreads=6 -XX:ParallelGCThreads=6 -XX:MaxGCPauseMillis=25"
+    tty: true
+    stdin_open: true
+    # restart: unless-stopped
+    # TODO
+    # volumes:
+      # - ./minecraft-data:/data
+      # - ./mods.txt:/extras/mods.txt:ro
+
+# volumes:
+  # data:

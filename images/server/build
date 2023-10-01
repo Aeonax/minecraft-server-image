@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+VERSION="0.1"
+
+docker build -t aeonaxliar/minecraft-server:${VERSION} .
+docker push aeonaxliar/minecraft-server:${VERSION}
